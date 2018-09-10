@@ -1,0 +1,46 @@
+﻿@model MyBlog.Models.CommentDTO
+<div id="footer">
+    <div id="subscribe">
+        <div class="container">
+            <div class="form-inline justify-content-center">
+                <div class="form-group">
+                    <p>Stay updated on latest updates &amp; posts</p>
+                </div>
+                <form id="update" asp-controller="home" asp-action="stayupdated" data-ajax="true" role="form" data-ajax-method="POST" data-ajax-success="Update">
+                    <div class="form-group">
+                        <div class="input-group">
+                            <input asp-for="info.email" type="text" class="form-control" placeholder="Your email address">
+                            <span asp-validation-for="info.email" class="text-danger"></span>
+                            <span class="input-group-btn">
+                                <button class="btn btn-ada-dark" type="submit" onclick="update()">Subscribe</button>
+                            </span>
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+        </div>
+    </div>
+    <div id="links">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-2">
+
+                </div>
+                <div class="col-sm-8">
+                    <ul class="list-inline">
+                        <li><a asp-area="" asp-controller="Home" asp-action="Index">Home</a></li>
+                        <li><a asp-area="" asp-controller="Home" asp-action="About">About</a></li>
+                        <li><a asp-area="" asp-controller="Home" asp-action="Contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-2">
+                    <ul class="list-inline">
+                        <li class="list-inline-item"><a href="https://www.linkedin.com/in/nicoladilillo/"><i class="fa fa-2x fa-linkedin"></i></a></li>
+                        <li class="list-inline-item"><a href="https://github.com/ndili561"><i class="fa fa-2x fa-github"></i></a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+</div>
+
