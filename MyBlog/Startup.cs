@@ -33,8 +33,8 @@ namespace MyBlog
         public void ConfigureServices(IServiceCollection services)
         {
             ModuleLoader.LoadContainer(services,"MyBlog.*.dll");
-            services.AddMvc()
-            .AddNToastNotifyToastr();
+            //services.AddMvc()
+           
             services.AddCors();
             services.AddDbContext<DatabaseContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
             services.AddAutoMapper(typeof(Startup));
@@ -58,7 +58,7 @@ namespace MyBlog
             });
 
 
-            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
+            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1).AddNToastNotifyToastr();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
