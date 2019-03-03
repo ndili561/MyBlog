@@ -51,6 +51,11 @@ namespace MyBlog
                 options.CheckConsentNeeded = context => true;
                 options.MinimumSameSitePolicy = SameSiteMode.None;
             });
+            services.AddHttpsRedirection(options =>
+            {
+                options.RedirectStatusCode = StatusCodes.Status307TemporaryRedirect;
+                options.HttpsPort = 443;
+            });
 
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
@@ -69,13 +74,13 @@ namespace MyBlog
             {
                 app.UseExceptionHandler("/Home/Error");
                 app.UseHsts();
+                app.UseHttpsRedirection();
             }
+          
 
-            app.UseHttpsRedirection();
             app.UseStaticFiles();
             app.UseCookiePolicy();
             app.UseDefaultFiles();
-            app.UseStaticFiles();
             app.UseNToastNotify();
 
             app.UseMvc(routes =>
